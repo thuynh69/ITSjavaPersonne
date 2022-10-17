@@ -10,7 +10,8 @@ import com.itsjava.classe.Personne;
 
 public class Connexion {
 
-    public static void bdConnexion(Personne p){
+    public static void bdConnexion(Personne p) throws ClassNotFoundException{
+        Class.forName("org.sqlite.JDBC");
         String url = "jdbc:sqlite:bdd.db";
         // try whith ressouces (ferme les objects de connexion)
         try(Connection conn = DriverManager.getConnection(url); Statement stmt = conn.createStatement();){
